@@ -23,19 +23,15 @@
             $output->writeln(sprintf('Отправляем...'));
             $values = $input->getArgument('values');
             
-            $userid = $values[0];
-            $sendby = $values[1];
-            $orderid = $values[2];
-            
-            if (!is_numeric($userid)) {
-                $output->writeln(sprintf('<error>Первый аргумент должен быть INTEGER!</error>'));
-                Loger::write('Первый аргумент должен быть INTEGER!');
-                exit;
-            }
+            // можно на входе принять userid, но придется игнорировать таблицу заказов.
+            // но я решил использовать orderid, потому что уведомления отправляеться после оформлении заказа,
+            // а заказы храняться в кокм-то таблице. В данном проекте есть таблица orders
+            $orderid = $values[0]; 
+            $sendby = $values[1]; // action для выбора - отправить по смс или по почте?!
             
             if (!is_numeric($orderid)) {
-                $output->writeln(sprintf('<error>Третий аргумент должен быть INTEGER!</error>'));
-                Loger::write('Третий аргумент должен быть INTEGER!');
+                $output->writeln(sprintf('<error>Ошибка: первый аргумент должен быть INTEGER!</error>'));
+                Loger::write('Ошибка: первый аргумент должен быть INTEGER!');
                 exit;
             }
             
@@ -44,7 +40,7 @@
                 $output->writeln(sprintf('<error>Аргумент должен содержать phone или mail.</error>'));
                 Loger::write('Аргумент должен содержать phone или mail!');
                 exit;
-            } else $output->writeln(sprintf(Controller::run($userid, $sendby, $orderid)));
+            } else $output->writeln(sprintf(Controller::run($sendby, $orderid)));
             
             return 0;
         }

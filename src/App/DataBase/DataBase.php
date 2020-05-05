@@ -16,6 +16,11 @@
                     'id' => 2,
                     'name' => 'Хороший телефон Samsung',
                     'price' => '1560'
+                ],
+                2 => [
+                    'id' => 3,
+                    'name' => 'Коженная сумка',
+                    'price' => '420'
                 ]
             ];
             return $products;
@@ -27,7 +32,7 @@
                 0 => [
                     'id' => 1,
                     'name' => 'Safar',
-                    'phone' => '+992 918252514',
+                    'phone' => '+992 918338309',
                     'mail' => 'safar@mail.ru'
                 ],
                 1 => [
@@ -35,6 +40,12 @@
                     'name' => 'Daler',
                     'phone' => '+992 918445588',
                     'mail' => 'daler@mail.ru'
+                ],
+                2 => [
+                    'id' => 3,
+                    'name' => 'Бахтовар',
+                    'phone' => '+992 918557584',
+                    'mail' => 'baxa@mail.ru'
                 ]
             ];
             return $users;
@@ -46,12 +57,17 @@
                 0 => [
                     'id' => 1,
                     'productid' => 1,
-                    'userid' => 2,
+                    'userid' => 2
                 ],
                 1 => [
                     'id' => 2,
                     'productid' => 2,
-                    'userid' => 1,
+                    'userid' => 1
+                ],
+                2 => [
+                    'id' => 3,
+                    'productid' => 3,
+                    'userid' => 3
                 ]
             ];
             return $orders;
